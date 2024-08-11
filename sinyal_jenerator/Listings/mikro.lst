@@ -1,0 +1,51 @@
+A51 MACRO ASSEMBLER  MIKRO                                                                06/04/2023 20:33:28 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\mikro.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE mikro.asm SET(SMALL) DEBUG PRINT(.\Listings\mikro.lst) OBJECT(.\Objects
+                      \mikro.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0x0000
+                       2     
+                       3     
+                       4     
+0000                   5     MAIN:
+                       6     
+0000 E4                7         START:   CLR A
+                       8      
+0001 F5A0              9         INCR:     MOV P2,A
+0003 04               10                 INC A
+0004 B4FFFA           11                 CJNE A,#0FFH,INCR
+0007 74FF             12         DECR:   MOV A,#0FFH
+0009 F5A0             13                 MOV P2,A
+000B 14               14                 DEC A
+000C B400F8           15                 CJNE A,#00H,DECR
+                      16                     
+                      17                             
+                      18                             
+000F 80EF             19                 SJMP START
+0011 22               20             RET
+                      21       END
+                             
+A51 MACRO ASSEMBLER  MIKRO                                                                06/04/2023 20:33:28 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DECR . . . . . . .  C ADDR   0007H   A   
+INCR . . . . . . .  C ADDR   0001H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

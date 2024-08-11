@@ -1,0 +1,141 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    06/07/2023  15:56:48  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\sinyalkod.obj TO .\Objects\sinyaljen PRINT (.\Listings\sinyaljen.m51) RAMSIZE (256
+>> )
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\sinyalkod.obj (SINYALKOD)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\sinyaljen (SINYALKOD)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0032H     UNIT         ?DT?SINYALKOD
+            DATA    003AH     0003H     UNIT         _DATA_GROUP_
+            IDATA   003DH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     007CH     UNIT         ?PR?MAIN?SINYALKOD
+            CODE    0908H     0036H     UNIT         ?C_INITSEG
+            CODE    093EH     0020H     UNIT         ?PR?_DELAY?SINYALKOD
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\sinyaljen (SINYALKOD)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?SINYALKOD
+  +--> ?C_INITSEG
+
+?PR?MAIN?SINYALKOD             003AH    0003H
+  +--> ?PR?_DELAY?SINYALKOD
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\sinyaljen (SINYALKOD)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SINYALKOD
+  C:0000H         SYMBOL        _ICE_DUMMY_
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/07/2023  15:56:48  PAGE 2
+
+
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  C:093EH         PUBLIC        _delay
+  C:088CH         PUBLIC        main
+  D:0008H         PUBLIC        sine
+  B:0090H.0       PUBLIC        button1
+  B:0090H.1       PUBLIC        button2
+  B:0090H.2       PUBLIC        button3
+  -------         PROC          MAIN
+  -------         DO            
+  D:003AH         SYMBOL        dutyCycle
+  D:003BH         SYMBOL        increment
+  D:003CH         SYMBOL        index
+  -------         ENDDO         
+  C:088CH         LINE#         14
+  C:088CH         LINE#         15
+  C:088CH         LINE#         17
+  C:088FH         LINE#         18
+  C:0892H         LINE#         20
+  C:0894H         LINE#         22
+  C:0897H         LINE#         23
+  C:0897H         LINE#         24
+  C:089DH         LINE#         25
+  C:089DH         LINE#         26
+  C:08A0H         LINE#         27
+  C:08A7H         LINE#         29
+  C:08AAH         LINE#         30
+  C:08B0H         LINE#         31
+  C:08B2H         LINE#         32
+  C:08B2H         LINE#         34
+  C:08B5H         LINE#         35
+  C:08B5H         LINE#         36
+  C:08BBH         LINE#         37
+  C:08BBH         LINE#         38
+  C:08C3H         LINE#         39
+  C:08CAH         LINE#         41
+  C:08CCH         LINE#         42
+  C:08D3H         LINE#         43
+  C:08D6H         LINE#         44
+  C:08D8H         LINE#         45
+  C:08D8H         LINE#         46
+  C:08DBH         LINE#         47
+  C:08E1H         LINE#         48
+  C:08E1H         LINE#         49
+  C:08E4H         LINE#         50
+  C:08EBH         LINE#         52
+  C:08F1H         LINE#         53
+  C:08F6H         LINE#         54
+  C:08FBH         LINE#         56
+  C:0902H         LINE#         57
+  C:0905H         LINE#         59
+  C:0907H         LINE#         60
+  C:0907H         LINE#         61
+  -------         ENDPROC       MAIN
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        ms
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/07/2023  15:56:48  PAGE 3
+
+
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:093EH         LINE#         64
+  C:093EH         LINE#         65
+  C:093EH         LINE#         67
+  C:0948H         LINE#         68
+  C:095DH         LINE#         69
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        SINYALKOD
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00D1H BYTE (10%) *
+******************************************************************************
+
+Program Size: data=62.0 xdata=0 code=353
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

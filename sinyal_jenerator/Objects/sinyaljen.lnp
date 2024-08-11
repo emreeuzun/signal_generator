@@ -1,0 +1,3 @@
+".\Objects\sinyalkod.obj" 
+TO ".\Objects\sinyaljen" 
+PRINT(".\Listings\sinyaljen.m51") RAMSIZE(256) 

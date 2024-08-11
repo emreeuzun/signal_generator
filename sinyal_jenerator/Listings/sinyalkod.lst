@@ -1,0 +1,107 @@
+C51 COMPILER V9.60.7.0   SINYALKOD                                                         06/07/2023 15:56:48 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE SINYALKOD
+OBJECT MODULE PLACED IN .\Objects\sinyalkod.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE sinyalkod.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\sinyalkod.lst) TABS(2) OBJECT(.\Objects\sinyalkod.obj)
+
+line level    source
+
+   1          #include <REG51.h>
+   2          #include <intrins.h>
+   3          
+   4          sbit button1 = P1^0;// Buton için kullanilacak pin
+   5          sbit button2 = P1^1;
+   6          sbit button3 = P1^2;
+   7          
+   8          unsigned char sine[50] = {52,57,62,66,70,74,77,80,82,84,85,86,86,86,85,83,81,78,75,72,69,65,61,56,52,48,44
+             -,39,35,31,28,25,22,19,17,15,14,14,14,15,16,18,20,23,26,30,34,38,43,48};
+   9           
+  10          void delay(unsigned int);
+  11          
+  12          
+  13          
+  14          void main()
+  15          {
+  16   1        
+  17   1         unsigned char dutyCycle = 0;
+  18   1          unsigned char increment = 5;
+  19   1         
+  20   1          unsigned char index = 0;
+  21   1        
+  22   1        if(button1==0)
+  23   1          {
+  24   2         while(button2==1 && button3==1) 
+  25   2           {
+  26   3             P2 = 0x7F;   // Kare dalga yüksek seviyede
+  27   3              delay(50);
+  28   3      
+  29   3              P2 = 0x00;   // Kare dalga düsük seviyede
+  30   3              delay(50);
+  31   3          }
+  32   2        }
+  33   1      
+  34   1        if(button2==0)
+  35   1          {
+  36   2          while(button1==1 && button3==1)
+  37   2            {
+  38   3              P2 = sine[index];
+  39   3              delay(1);
+  40   3      
+  41   3              index++;
+  42   3              if (index >= sizeof(sine))
+  43   3                  index = 0;
+  44   3           }
+  45   2         }
+  46   1      if(button3==0){
+  47   2           while(button1==1 && button2==1) 
+  48   2             {
+  49   3                 P2 = dutyCycle;
+  50   3              delay(1);
+  51   3      
+  52   3              dutyCycle += increment;
+  53   3              if (dutyCycle >= 255)
+C51 COMPILER V9.60.7.0   SINYALKOD                                                         06/07/2023 15:56:48 PAGE 2   
+
+  54   3                  increment = -5;
+  55   3              
+  56   3              else if (dutyCycle <= 0)
+  57   3                  increment = 5;
+  58   3              
+  59   3              }
+  60   2            }
+  61   1          }
+  62              
+  63            
+  64          void delay(unsigned int ms)
+  65          {
+  66   1          unsigned int i, j;
+  67   1          for (i = 0; i < ms; i++)
+  68   1              for (j = 0; j < 112; j++);
+  69   1      }
+  70          
+  71          
+  72            
+  73          
+  74            
+  75            
+  76          
+  77            
+  78          
+  79            
+  80            
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    156    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     50       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
